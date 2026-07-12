@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/images/bacc_form.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER_LEFT" layoutX="83.0" layoutY="7.0" prefHeight="41.0" prefWidth="435.0">
+         <children>
+            <FontAwesomeIconView fill="#ff3399" glyphName="FILE" size="18" text="">
+               <HBox.margin>
+                  <Insets right="8.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <VBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="258.0">
+               <children>
+                  <Label text="Data Undangan" textFill="#ff3399" />
+                  <Label text="Kelola data undangan dengan mudah dan terstruktur" textFill="#ff3399">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <SplitPane dividerPositions="0.37" layoutX="83.0" layoutY="52.0" orientation="VERTICAL" prefHeight="334.0" prefWidth="435.0" style="-fx-background-radius: 15; -fx-background-color: #ffffff; -fx-opacity: 0.8; -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.6), 10, 0, 0, 0);" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="82.5" AnchorPane.rightAnchor="82.5" AnchorPane.topAnchor="52.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="72.0" prefWidth="435.0" style="-fx-background-radius: 15;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <HBox layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="150.0" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="277.0" AnchorPane.topAnchor="8.0">
+                     <children>
+                        <FontAwesomeIconView fill="#ff3399" glyphName="PLUS" text="">
+                           <HBox.margin>
+                              <Insets right="4.0" />
+                           </HBox.margin>
+                        </FontAwesomeIconView>
+                        <Label text="Tambah data undangan">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutY="27.0" prefHeight="18.0" prefWidth="435.0" spacing="10.0" AnchorPane.topAnchor="30.0">
+                     <children>
+                        <HBox prefHeight="18.0" prefWidth="97.0">
+                           <children>
+                              <FontAwesomeIconView fill="#ff3399" glyphName="TAG" tabSize="7">
+                                 <HBox.margin>
+                                    <Insets right="4.0" />
+                                 </HBox.margin>
+                              </FontAwesomeIconView>
+                              <Label text="Kode undangan">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="18.0" prefWidth="97.0">
+                           <children>
+                              <FontAwesomeIconView fill="#ff3399" glyphName="USER" tabSize="7" text="">
+                                 <HBox.margin>
+                                    <Insets right="4.0" />
+                                 </HBox.margin>
+                              </FontAwesomeIconView>
+                              <Label text="Nama">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="18.0" prefWidth="97.0">
+                           <children>
+                              <FontAwesomeIconView fill="#ff3399" glyphName="PENCIL" text="">
+                                 <HBox.margin>
+                                    <Insets right="4.0" />
+                                 </HBox.margin>
+                              </FontAwesomeIconView>
+                              <Label text="Alamat">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="18.0" prefWidth="97.0">
+                           <children>
+                              <FontAwesomeIconView fill="#ff3399" glyphName="USER" tabSize="7" text="">
+                                 <HBox.margin>
+                                    <Insets right="4.0" />
+                                 </HBox.margin>
+                              </FontAwesomeIconView>
+                              <Label text="Jenis kelamin">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="8.0" />
+                     </padding>
+                  </HBox>
+                  <TextField layoutX="5.0" layoutY="47.0" prefHeight="0.0" prefWidth="86.0" />
+                  <TextField layoutX="100.0" layoutY="47.0" prefHeight="26.0" prefWidth="104.0" />
+                  <TextField layoutX="213.0" layoutY="47.0" prefHeight="26.0" prefWidth="104.0" />
+                  <TextField layoutX="325.0" layoutY="48.0" prefHeight="26.0" prefWidth="104.0" />
+                  <StackPane alignment="CENTER_LEFT" layoutX="121.0" layoutY="81.0" prefHeight="26.0" prefWidth="97.0" AnchorPane.leftAnchor="121.0" AnchorPane.rightAnchor="216.0">
+                     <children>
+                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="21.0" prefWidth="91.0" style="-fx-background-color: #ff3399; -fx-border-radius: 3;" text="Simpan data" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Button>
+                        <FontAwesomeIconView fill="WHITE" glyphName="PLUS" text="">
+                           <StackPane.margin>
+                              <Insets left="4.0" />
+                           </StackPane.margin>
+                        </FontAwesomeIconView>
+                     </children>
+                  </StackPane>
+                  <StackPane alignment="CENTER_LEFT" layoutX="218.0" layoutY="81.0" prefHeight="26.0" prefWidth="77.0">
+                     <children>
+                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="23.0" prefWidth="73.0" style="-fx-background-color: #ffffff; -fx-border-radius: 3; -fx-border-color: #ff3399;" text="Batalkan">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Button>
+                        <FontAwesomeIconView glyphName="STAR" text="">
+                           <StackPane.margin>
+                              <Insets left="4.0" />
+                           </StackPane.margin>
+                        </FontAwesomeIconView>
+                     </children>
+                  </StackPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-radius: 15;">
+               <children>
+                  <HBox layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="150.0">
+                     <children>
+                        <FontAwesomeIconView fill="#ff3399" glyphName="PLUS" text="">
+                           <HBox.margin>
+                              <Insets right="4.0" />
+                           </HBox.margin>
+                        </FontAwesomeIconView>
+                        <Label text="Tambah data undangan">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="24.0" layoutY="24.0" prefHeight="18.0" prefWidth="150.0" />
+                  <TableView layoutX="14.0" layoutY="36.0" prefHeight="151.0" prefWidth="406.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+                  <StackPane alignment="CENTER_RIGHT" layoutX="190.0" layoutY="13.0" prefHeight="21.0" prefWidth="124.0" AnchorPane.bottomAnchor="167.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="3.0">
+                     <children>
+                        <FontAwesomeIconView glyphName="SEARCH" text="">
+                           <StackPane.margin>
+                              <Insets right="8.0" />
+                           </StackPane.margin>
+                        </FontAwesomeIconView>
+                        <TextField prefHeight="21.0" prefWidth="120.0" text="Cari data ....">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </StackPane>
+                  <StackPane alignment="CENTER_LEFT" layoutX="321.0" layoutY="8.0" prefHeight="26.0" prefWidth="97.0" AnchorPane.topAnchor="4.0">
+                     <children>
+                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="21.0" prefWidth="103.0" style="-fx-background-color: #006600; -fx-border-radius: 3;" text="Export to pdf" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" text="" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
+               </children></AnchorPane>
+        </items>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </SplitPane>
+   </children>
+</AnchorPane>
