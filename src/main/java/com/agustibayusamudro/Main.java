@@ -9,10 +9,12 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-            getClass().getResource("/com/agustibayusamudro/view/login.fxml"));
+            getClass().getResource("/com/agustibayusamudro/view/Login.fxml"));
+
         Scene scene = new Scene(loader.load());
         stage.setTitle("SISTEM RESEPSI");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
     public static void main(String[] args) {
