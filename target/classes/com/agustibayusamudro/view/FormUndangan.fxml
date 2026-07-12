@@ -218,8 +218,10 @@
                   <HBox layoutX="24.0" layoutY="24.0" prefHeight="18.0" prefWidth="150.0" />
                   <TableView layoutX="14.0" layoutY="36.0" prefHeight="134.0" prefWidth="404.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn prefWidth="75.0" text="kode_undangan" />
+                      <TableColumn prefWidth="75.0" text="nama" />
+                        <TableColumn prefWidth="75.0" text="alamat" />
+                        <TableColumn prefWidth="75.0" text="jenis_kelamin" />
                     </columns>
                   </TableView>
                   <StackPane alignment="CENTER_RIGHT" layoutX="190.0" layoutY="13.0" prefHeight="21.0" prefWidth="124.0" AnchorPane.bottomAnchor="167.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="3.0">

@@ -32,7 +32,7 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -45,8 +45,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="326.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="326.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agustibayusamudro.controllers.LoginController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -62,7 +61,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" layoutY="93.0" prefHeight="28.0" prefWidth="200.0">
                <children>
-                  <FontAwesomeIconView fill="#948df2" glyphName="USER" size="22" />
+                  <FontIcon iconLiteral="fa-user" iconSize="22" iconColor="#948df2" />
                   <TextField fx:id="txtUsername" prefHeight="26.0" prefWidth="161.0" text="Username">
                      <padding>
                         <Insets left="10.0" />
@@ -83,8 +82,8 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="200.0">
                      <children>
-                        <FontAwesomeIconView fill="#504f5e" glyphName="LOCK" size="22" />
-                        <PasswordField fx:id="txtUsername" prefHeight="25.0" prefWidth="163.0" text="Password">
+                        <FontIcon iconLiteral="fa-lock" iconSize="22" iconColor="#504f5e" />
+                        <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="163.0" text="Password">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -97,11 +96,11 @@
                         </PasswordField>
                      </children>
                   </HBox>
-                  <FontAwesomeIconView glyphName="EYE">
+                  <FontIcon iconLiteral="fa-eye">
                      <StackPane.margin>
                         <Insets right="5.0" />
                      </StackPane.margin>
-                  </FontAwesomeIconView>
+                  </FontIcon>
                </children>
                <opaqueInsets>
                   <Insets />

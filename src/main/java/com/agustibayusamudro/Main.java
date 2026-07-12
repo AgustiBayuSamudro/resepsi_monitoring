@@ -12,9 +12,9 @@ public class Main extends Application {
             getClass().getResource("/com/agustibayusamudro/view/Login.fxml"));
 
         Scene scene = new Scene(loader.load());
+        stage.setResizable(true);
         stage.setTitle("SISTEM RESEPSI");
-        stage.setScene(scene);
-        stage.setResizable(false);
+        stage.setScene(scene);        
         stage.show();
     }
     public static void main(String[] args) {
