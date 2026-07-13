@@ -3,8 +3,8 @@ package com.agustibayusamudro.controllers;
 import java.io.IOException;
 
 import com.agustibayusamudro.dto.LoginDTO;
-import com.agustibayusamudro.services.AuthService;
-import com.agustibayusamudro.services.impl.AuthServiceImpl;
+import com.agustibayusamudro.services.UserService;
+import com.agustibayusamudro.services.impl.UserServiceImpl;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +22,7 @@ public class LoginController {
     @FXML private TextField txtUsername;
     @FXML private PasswordField txtPassword;
 
-    private AuthService authService = new AuthServiceImpl();
+    private UserService userService = new UserServiceImpl();
 
     @FXML
     private void login(ActionEvent event) {
@@ -30,7 +30,7 @@ public class LoginController {
         String password = txtPassword.getText();
 
         LoginDTO loginDTO = new LoginDTO(username, password);
-        boolean isSuccess = authService.login(loginDTO);
+        boolean isSuccess = userService.login(loginDTO);
         
         if(isSuccess) {
             try {                

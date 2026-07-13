@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import com.agustibayusamudro.dto.LoginDTO;
 import com.agustibayusamudro.repositories.UserRepository;
 import com.agustibayusamudro.repositories.impl.UserRepositoryImpl;
-import com.agustibayusamudro.services.AuthService;
+import com.agustibayusamudro.services.UserService;
 
-public class AuthServiceImpl implements AuthService {
+public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository = new UserRepositoryImpl();
 

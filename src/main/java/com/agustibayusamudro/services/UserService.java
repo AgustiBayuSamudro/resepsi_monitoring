@@ -2,6 +2,6 @@ package com.agustibayusamudro.services;
 
 import com.agustibayusamudro.dto.LoginDTO;
 
-public interface AuthService {
+public interface UserService {
     boolean login(LoginDTO loginDTO);
 }

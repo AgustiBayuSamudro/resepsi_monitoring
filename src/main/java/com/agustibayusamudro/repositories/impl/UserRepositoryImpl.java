@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.agustibayusamudro.database.Database_Connect;
+import com.agustibayusamudro.database.DatabaseConnection;
 import com.agustibayusamudro.entities.User;
 import com.agustibayusamudro.repositories.UserRepository;
 
@@ -14,7 +14,7 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User findByUsername(String username) throws SQLException {
         String sql = "SELECT * FROM users WHERE username = ?";
-        try (Connection conn = Database_Connect.getConnection();
+        try (Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 
                 pstmt.setString(1, username);
