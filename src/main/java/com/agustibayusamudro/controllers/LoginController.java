@@ -34,7 +34,7 @@ public class LoginController {
         
         if(isSuccess) {
             try {                
-                navigateMenuUtama(event);
+                navigate(event,"/com/agustibayusamudro/view/MenuUtama.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
                 showError("Error", "Tidak dapat membuka Menu Utama.");
@@ -44,9 +44,9 @@ public class LoginController {
         }
     }
 
-    private void navigateMenuUtama(ActionEvent event) throws IOException {
+    private void navigate(ActionEvent event, String path) throws IOException {
         FXMLLoader loader = new FXMLLoader(
-            getClass().getResource("/com/agustibayusamudro/view/MenuUtama.fxml")
+            getClass().getResource(path)
         );
 
         Parent root = loader.load();
