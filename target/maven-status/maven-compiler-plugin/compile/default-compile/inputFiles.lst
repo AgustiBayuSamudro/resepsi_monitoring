@@ -1,6 +1,7 @@
 /home/agusti/Documents/agusti/projects/dekstop/java/resepsi_monitoring/src/main/java/com/agustibayusamudro/repositories/UserRepository.java
 /home/agusti/Documents/agusti/projects/dekstop/java/resepsi_monitoring/src/main/java/com/agustibayusamudro/entities/User.java
 /home/agusti/Documents/agusti/projects/dekstop/java/resepsi_monitoring/src/main/java/com/agustibayusamudro/database/Database_Connect.java
+/home/agusti/Documents/agusti/projects/dekstop/java/resepsi_monitoring/src/main/java/com/agustibayusamudro/controllers/MenuUtamaController.java
 /home/agusti/Documents/agusti/projects/dekstop/java/resepsi_monitoring/src/main/java/com/agustibayusamudro/Main.java
 /home/agusti/Documents/agusti/projects/dekstop/java/resepsi_monitoring/src/main/java/com/agustibayusamudro/services/impl/AuthServiceImpl.java
 /home/agusti/Documents/agusti/projects/dekstop/java/resepsi_monitoring/src/main/java/com/agustibayusamudro/dto/LoginDTO.java
