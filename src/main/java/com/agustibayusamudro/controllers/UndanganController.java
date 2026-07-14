@@ -21,6 +21,7 @@ public class UndanganController {
 
     private final UndanganService service = new UndanganServiceImpl();
     private final ObservableList<UndanganDTO> listData = FXCollections.observableArrayList();
+    private String kodeUndanganEdit = null;
 
     @FXML
     public void initialize() {
@@ -60,8 +61,12 @@ public class UndanganController {
 
     @FXML
     public void simpan() {
-        UndanganDTO dto = new UndanganDTO(null, txtNama.getText(), txtAlamat.getText(), cbJenisKelamin.getValue());
-        service.tambahUndangan(dto);
+        UndanganDTO dto = new UndanganDTO(kodeUndanganEdit, txtNama.getText(), txtAlamat.getText(), cbJenisKelamin.getValue());
+        if(kodeUndanganEdit == null) {
+            service.tambahUndangan(dto);
+        } else {
+            service.updateUndangan(kodeUndanganEdit, dto);
+        }
         riset();
         loadData();
     }
@@ -74,6 +79,7 @@ public class UndanganController {
     }
 
     private void isiForm(UndanganDTO data) {
+        kodeUndanganEdit = data.getKodeUndangan();
         txtNama.setText(data.getNama());
         txtAlamat.setText(data.getAlamat());
         cbJenisKelamin.setValue(data.getJenisKelamin());

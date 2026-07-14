@@ -37,16 +37,16 @@ public class UndanganServiceImpl implements UndanganService {
         }
     }
     @Override
-    public void updateUndangan(int id, UndanganDTO dto) {
+    public void updateUndangan(String kodeUndangan, UndanganDTO dto) {
         try {
-            Undangan undangan = repository.findById(id);
+            Undangan undangan = repository.findByKodeUndangan(kodeUndangan);
             if (undangan != null) {
                 undangan.setNama(dto.getNama());
                 undangan.setAlamat(dto.getAlamat());
                 undangan.setJenisKelamin(dto.getJenisKelamin());
                 repository.update(undangan);
             } else {
-                throw new RuntimeException("Undangan dengan ID " + id + " tidak ditemukan.");
+                throw new RuntimeException("Undangan dengan by kode_undangan " + kodeUndangan + " tidak ditemukan.");
             }
         } catch (SQLException e) {
             throw new RuntimeException("Gagal mengupdate data: " + e.getMessage());

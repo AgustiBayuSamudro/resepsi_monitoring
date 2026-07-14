@@ -43,11 +43,11 @@ public class UndanganRepositoryImpl implements UndanganRepository {
     }
 
     @Override
-    public Undangan findById(int id) throws SQLException {
-        String sql = "SELECT * FROM undangans WHERE undangan_id = ?";
+    public Undangan findByKodeUndangan(String kodeUndangan) throws SQLException {
+        String sql = "SELECT * FROM undangans WHERE kode_undangan = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
+            stmt.setString(1, kodeUndangan);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) return mapRowToUndangan(rs);
             }
