@@ -9,17 +9,22 @@ import com.agustibayusamudro.database.DatabaseConnection;
 import com.agustibayusamudro.entities.User;
 import com.agustibayusamudro.repositories.UserRepository;
 
-public class UserRepositoryImpl implements UserRepository {
-    
+public class UserRepositoryImpl implements UserRepository{
+
+    private final DatabaseConnection databaseConnection;    
+    public UserRepositoryImpl(DatabaseConnection databaseConnection) {
+        this.databaseConnection = databaseConnection;
+    }
+
     @Override
-    public User findByUsername(String username) throws SQLException {
-        String sql = "SELECT * FROM users WHERE username = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                
-                pstmt.setString(1, username);
-                try (ResultSet rs = pstmt.executeQuery()) {
-                    if (rs.next()) {
+    public User findByUsername(String username)throws SQLException {
+        String SQL = "SELECT * FROM users WHERE username = ?";
+        try(Connection conn = databaseConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(SQL)) {
+
+                stmt.setString(1, username);
+                try(ResultSet rs = stmt.executeQuery()) {
+                    if(rs.next()) {
                         return new User(
                             rs.getInt("user_id"),
                             rs.getString("username"),
@@ -29,7 +34,7 @@ public class UserRepositoryImpl implements UserRepository {
                         );
                     }
                 }
-        }
+            }
         return null;
     }
 }

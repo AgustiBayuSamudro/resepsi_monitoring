@@ -4,16 +4,17 @@ import java.sql.SQLException;
 
 import com.agustibayusamudro.dto.LoginDTO;
 import com.agustibayusamudro.repositories.UserRepository;
-import com.agustibayusamudro.repositories.impl.UserRepositoryImpl;
 import com.agustibayusamudro.services.UserService;
 
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService{  
 
-    private UserRepository userRepository = new UserRepositoryImpl();
+    private final UserRepository userRepository;
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-    @Override
     public boolean login(LoginDTO loginDTO) {
-        if (loginDTO.getUsername().isBlank() || loginDTO.getPassword().isBlank()) {
+        if(loginDTO.getUsername().isBlank() && loginDTO.getPassword().isBlank()) {
             return false;
         }
         try {

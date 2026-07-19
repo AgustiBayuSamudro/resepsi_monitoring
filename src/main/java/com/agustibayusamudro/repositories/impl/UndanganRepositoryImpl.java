@@ -13,11 +13,15 @@ import com.agustibayusamudro.entities.Undangan;
 import com.agustibayusamudro.repositories.UndanganRepository;
 
 public class UndanganRepositoryImpl implements UndanganRepository {
+    private final DatabaseConnection databaseConnection;
+    public UndanganRepositoryImpl(DatabaseConnection databaseConnection) {
+        this.databaseConnection = databaseConnection;
+    }
     
     @Override
     public Undangan save(Undangan undangan) throws SQLException {
         String sql = "INSERT INTO undangans (kode_undangan, nama, alamat, jenis_kelamin, created_at,updated_at) VALUES (?,?,?,?,now(),now())";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = databaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
              stmt.setString(1, undangan.getKodeUndangan());
              stmt.setString(2, undangan.getNama());
@@ -32,7 +36,7 @@ public class UndanganRepositoryImpl implements UndanganRepository {
     public List<Undangan> findAll() throws SQLException {
         List<Undangan> list = new ArrayList<>();
         String sql = "SELECT * FROM undangans";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = databaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
@@ -45,7 +49,7 @@ public class UndanganRepositoryImpl implements UndanganRepository {
     @Override
     public Undangan findByKodeUndangan(String kodeUndangan) throws SQLException {
         String sql = "SELECT * FROM undangans WHERE kode_undangan = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = databaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, kodeUndangan);
             try (ResultSet rs = stmt.executeQuery()) {
@@ -57,7 +61,7 @@ public class UndanganRepositoryImpl implements UndanganRepository {
     @Override
     public void update(Undangan undangan) throws SQLException {
         String sql = "UPDATE undangans SET nama = ?, alamat = ?, jenis_kelamin = ? WHERE undangan_id = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = databaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, undangan.getNama());
             stmt.setString(2, undangan.getAlamat());
@@ -70,7 +74,7 @@ public class UndanganRepositoryImpl implements UndanganRepository {
     @Override
     public void delete(String kodeUndangan) throws SQLException {
         String sql = "DELETE FROM undangans WHERE kode_undangan = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = databaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, kodeUndangan);
             stmt.executeUpdate();
@@ -92,7 +96,7 @@ public class UndanganRepositoryImpl implements UndanganRepository {
     @Override
     public String findLastKodeUndangan() throws SQLException {
     String sql = "SELECT kode_undangan FROM undangans ORDER BY undangan_id DESC LIMIT 1";
-    try (Connection conn = DatabaseConnection.getConnection();
+    try (Connection conn = databaseConnection.getConnection();
          PreparedStatement stmt = conn.prepareStatement(sql);
          ResultSet rs = stmt.executeQuery()) {
         if (rs.next()) {

@@ -7,20 +7,23 @@ import java.util.stream.Collectors;
 import com.agustibayusamudro.dto.UndanganDTO;
 import com.agustibayusamudro.entities.Undangan;
 import com.agustibayusamudro.repositories.UndanganRepository;
-import com.agustibayusamudro.repositories.impl.UndanganRepositoryImpl;
 import com.agustibayusamudro.services.UndanganService;
 
 public class UndanganServiceImpl implements UndanganService {
-    private final UndanganRepository repository = new UndanganRepositoryImpl();
+
+    private final UndanganRepository undanganRepository;
+    public UndanganServiceImpl(UndanganRepository undanganRepository) {
+        this.undanganRepository = undanganRepository;
+    }
     
     @Override
     public void tambahUndangan(UndanganDTO dto) {
         try {        
-            String lastKode = repository.findLastKodeUndangan();
+            String lastKode = undanganRepository.findLastKodeUndangan();
             String newKode = generateNextKode(lastKode);        
             Undangan u = new Undangan(null, newKode, dto.getNama(), 
                                     dto.getAlamat(), dto.getJenisKelamin(), null, null);
-            repository.save(u);
+            undanganRepository.save(u);
             } catch (SQLException e) {
                 throw new RuntimeException("Gagal menambah data: " + e.getMessage());
         }
@@ -28,7 +31,7 @@ public class UndanganServiceImpl implements UndanganService {
     @Override
     public List<UndanganDTO> ambilSemuaUndangan() {
         try {
-            List<Undangan> listEntity = repository.findAll();            
+            List<Undangan> listEntity = undanganRepository.findAll();            
             return listEntity.stream().map(u -> 
                 new UndanganDTO(u.getKodeUndangan(), u.getNama(), u.getAlamat(), u.getJenisKelamin())
             ).collect(Collectors.toList());
@@ -39,12 +42,12 @@ public class UndanganServiceImpl implements UndanganService {
     @Override
     public void updateUndangan(String kodeUndangan, UndanganDTO dto) {
         try {
-            Undangan undangan = repository.findByKodeUndangan(kodeUndangan);
+            Undangan undangan = undanganRepository.findByKodeUndangan(kodeUndangan);
             if (undangan != null) {
                 undangan.setNama(dto.getNama());
                 undangan.setAlamat(dto.getAlamat());
                 undangan.setJenisKelamin(dto.getJenisKelamin());
-                repository.update(undangan);
+                undanganRepository.update(undangan);
             } else {
                 throw new RuntimeException("Undangan dengan by kode_undangan " + kodeUndangan + " tidak ditemukan.");
             }
@@ -55,7 +58,7 @@ public class UndanganServiceImpl implements UndanganService {
     @Override
     public void hapusUndangan(String kode) {
         try {
-            repository.delete(kode);
+            undanganRepository.delete(kode);
         } catch (SQLException e) {
             throw new RuntimeException("Gagal menghapus data: " + e.getMessage());
         }

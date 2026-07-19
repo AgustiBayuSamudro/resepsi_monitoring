@@ -5,5 +5,5 @@ import java.sql.SQLException;
 import com.agustibayusamudro.entities.User;
 
 public interface UserRepository {
-    User findByUsername(String username) throws SQLException;
+    User findByUsername(String username)throws SQLException;
 }

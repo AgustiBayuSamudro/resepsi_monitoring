@@ -2,6 +2,7 @@ package com.agustibayusamudro.controllers;
 
 import com.agustibayusamudro.dto.UndanganDTO;
 import com.agustibayusamudro.services.UndanganService;
+import com.agustibayusamudro.services.UserService;
 import com.agustibayusamudro.services.impl.UndanganServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,11 @@ import javafx.scene.layout.HBox;
 
 public class UndanganController {
 
+    private final UndanganService service;
+    public UndanganController(UndanganService service) {
+        this.service = service;
+    }
+
     @FXML private TextField txtNama;
     @FXML private TextArea txtAlamat;
     @FXML private ComboBox<String> cbJenisKelamin;
@@ -19,7 +25,6 @@ public class UndanganController {
     @FXML private TableColumn<UndanganDTO, String> colKode, colNama, colAlamat, colJK;
     @FXML private TableColumn<UndanganDTO, Void> colAksi;
 
-    private final UndanganService service = new UndanganServiceImpl();
     private final ObservableList<UndanganDTO> listData = FXCollections.observableArrayList();
     private String kodeUndanganEdit = null;
 

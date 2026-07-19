@@ -86,14 +86,23 @@
             </StackPane>
             <StackPane alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="190.0">
                <children>
-                  <PasswordField fx:id="txtPassword" prefHeight="32.0" prefWidth="190.0">
+                  <TextField fx:id="txtPasswordShow" prefHeight="45.0" prefWidth="30.0">
                      <padding>
-                        <Insets left="32.0" right="16.0" />
+                        <Insets left="32.0" right="32.0" />
+                     </padding></TextField>
+                  <PasswordField fx:id="txtPassword" prefHeight="45.0" prefWidth="30.0">
+                     <padding>
+                        <Insets left="32.0" right="32.0" />
                      </padding>
                   </PasswordField>
                   <FontIcon iconLiteral="fa-lock" iconSize="16">
                      <StackPane.margin>
                         <Insets left="8.0" right="8.0" />
+                     </StackPane.margin>
+                  </FontIcon>
+                  <FontIcon fx:id="toggleIcon" iconLiteral="fa-eye" onMouseClicked="#handleTogglePassword" text="" StackPane.alignment="CENTER_RIGHT">
+                     <StackPane.margin>
+                        <Insets right="8.0" />
                      </StackPane.margin>
                   </FontIcon>
                </children>
