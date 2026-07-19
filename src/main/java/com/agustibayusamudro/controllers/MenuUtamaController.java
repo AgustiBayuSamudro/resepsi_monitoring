@@ -2,6 +2,8 @@ package com.agustibayusamudro.controllers;
 
 import java.io.IOException;
 
+import com.agustibayusamudro.Main;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -71,6 +73,11 @@ public class MenuUtamaController {
     private void navigate(ActionEvent event, String path) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
         Parent root = loader.load();
+
+        Object controller = loader.getController();
+        if(controller instanceof UndanganController) {
+            ((UndanganController) controller).initService(Main.getUndanganService());
+        }
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));

@@ -2,8 +2,6 @@ package com.agustibayusamudro.controllers;
 
 import com.agustibayusamudro.dto.UndanganDTO;
 import com.agustibayusamudro.services.UndanganService;
-import com.agustibayusamudro.services.UserService;
-import com.agustibayusamudro.services.impl.UndanganServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,9 +11,10 @@ import javafx.scene.layout.HBox;
 
 public class UndanganController {
 
-    private final UndanganService service;
-    public UndanganController(UndanganService service) {
+    private UndanganService service;
+    public void initService(UndanganService service) {
         this.service = service;
+        loadData();
     }
 
     @FXML private TextField txtNama;
@@ -59,9 +58,7 @@ public class UndanganController {
                 super.updateItem(item, empty);
                 setGraphic(empty ? null : pane);
             }
-        });
-        
-        loadData();
+        });            
     }
 
     @FXML
